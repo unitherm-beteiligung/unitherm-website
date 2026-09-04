@@ -1,0 +1,398 @@
+/* ============================================================
+   Unitherm Beteiligungs GmbH — gemeinsames Stylesheet
+   Systemschriften, keine externen Ressourcen, keine Cookies.
+   ============================================================ */
+
+:root{
+  --ci:#0072bb;
+  --ci-d:#005b96;
+  --deep:#04141f;
+  --deep-2:#062c48;
+  --mid:#0a3c63;
+  --hi:#0f4a76;
+  --ember:#c2571e;
+  --ember-2:#e08a3c;
+
+  --ink:#14181d;
+  --ink-2:#4e575f;
+  --ink-3:#79828a;
+  --line:#e1e5e8;
+  --line-2:#cfd5da;
+  --soft:#f5f7f8;
+  --bg:#ffffff;
+
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  font-size:18px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
+  -webkit-hyphens:auto;
+  hyphens:auto;
+}
+img,svg{max-width:100%;display:block}
+a{color:var(--ci-d);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ci)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+
+.skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:12px 18px;z-index:100}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:3px solid var(--ember-2);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.022em;text-wrap:balance;line-height:1.1;-webkit-hyphens:manual;hyphens:manual}
+h2,h3{-webkit-hyphens:auto;hyphens:auto}
+/* Lange deutsche Komposita duerfen umbrechen, statt das Raster zu sprengen */
+.grid > div,.situ article > *,.pf article > *,.steps article > div,.card .body,
+.legal .dl > div,.node,.tile,.args > div,.field,.site-footer .cols > div{min-width:0}
+h1{font-size:clamp(38px,6.2vw,74px);line-height:.99;letter-spacing:-.035em}
+h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.028em;line-height:1.06}
+h3{font-size:clamp(20px,2.2vw,24px);letter-spacing:-.018em}
+h4{font-size:19px;letter-spacing:-.012em}
+.eyebrow{font-size:13px;letter-spacing:.19em;text-transform:uppercase;font-weight:600;color:var(--ci);overflow-wrap:anywhere;-webkit-hyphens:none;hyphens:none}
+@media(max-width:520px){.eyebrow{letter-spacing:.13em}}
+.lead{font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.measure{max-width:64ch}
+
+/* ---------- Kopfzeile ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:var(--deep)}
+.site-header .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:18px 0}
+.brand{display:block;flex:0 0 auto}
+.brand img{width:184px;height:50px}
+@media(max-width:640px){.brand img{width:158px;height:43px}}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{
+  color:rgba(255,255,255,.82);text-decoration:none;font-size:16px;font-weight:500;
+  padding:10px 14px;border-radius:6px;letter-spacing:-.005em;
+}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.10)}
+.nav a[aria-current="page"]{color:#fff;background:rgba(255,255,255,.14)}
+@media(max-width:760px){
+  .site-header .bar{padding:14px 0 8px}
+  .nav{width:100%;margin-top:2px}
+  .nav a{padding:10px 12px;font-size:15.5px}
+}
+
+/* ---------- Hero (Variante B — Wärme) ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(163deg,var(--deep) 0%,var(--deep-2) 38%,var(--mid) 66%,var(--hi) 100%)}
+.hero .ember,.hero .arc,.hero .hair{position:absolute;z-index:1;pointer-events:none}
+.hero .ember{inset:0;
+  background:radial-gradient(44rem 33rem at 100% 116%,
+    rgba(232,148,68,.96) 0%,rgba(203,97,34,.70) 24%,rgba(160,58,22,.34) 44%,rgba(90,34,18,.12) 58%,rgba(4,20,31,0) 74%)}
+.hero .arc{right:-150px;bottom:-240px;width:660px;height:660px;border-radius:50%;
+  border:1px solid rgba(240,164,92,.42);
+  box-shadow:0 0 0 56px rgba(224,138,60,.07),0 0 0 128px rgba(224,138,60,.035)}
+.hero .hair{left:0;right:0;top:0;height:100%;opacity:.5;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 62px);
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 62%);
+  mask-image:linear-gradient(180deg,#000,transparent 62%)}
+.hero-in{position:relative;z-index:2;padding:64px 0 56px}
+@media(min-width:900px){.hero-in{padding:96px 0 84px}}
+.hero h1{max-width:14ch}
+.hero h1 em{font-style:normal;display:block}
+.hero .sub{margin-top:26px;max-width:56ch;font-size:clamp(17px,1.9vw,20px);line-height:1.6;color:rgba(255,255,255,.82)}
+.hero .eyebrow{color:rgba(255,255,255,.72);margin-bottom:24px}
+.traits{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;
+  font-size:15.5px;color:rgba(255,255,255,.76)}
+.traits span{display:flex;align-items:center;gap:10px}
+.traits span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ember-2);flex:0 0 auto}
+@media(max-width:560px){.traits{flex-direction:column;gap:11px}}
+
+/* Einstiegskacheln im Hero */
+.tiles{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:1px;
+  background:rgba(255,255,255,.18);margin-top:52px}
+@media(min-width:760px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{display:flex;flex-direction:column;gap:12px;padding:30px 28px 28px;text-decoration:none;color:#fff;
+  background:linear-gradient(163deg,var(--deep-2),var(--mid));min-height:170px}
+.tile:first-child{background:linear-gradient(163deg,var(--mid),var(--hi))}
+.tile h2{font-size:22px;letter-spacing:-.015em;line-height:1.2}
+.tile p{font-size:16px;line-height:1.55;color:rgba(255,255,255,.80);flex:1}
+.tile .go{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:500;color:#fff}
+.tile .go::after{content:"";width:16px;height:1.5px;background:currentColor;transition:width .25s ease}
+.tile:hover .go::after,.tile:focus-visible .go::after{width:30px}
+@media(min-width:900px){.tile{padding:34px 34px 32px}}
+
+/* ---------- Schaltflächen ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:600;
+  padding:16px 26px;border-radius:8px;text-decoration:none;border:1px solid transparent;
+  min-height:54px;transition:background .2s ease,border-color .2s ease}
+.btn-primary{background:var(--ci);color:#fff}
+.btn-primary:hover{background:var(--ci-d);color:#fff}
+.btn-light{background:#fff;color:var(--deep)}
+.btn-light:hover{background:#eef2f5;color:var(--deep)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ---------- Abschnitte ---------- */
+section{padding:72px 0}
+@media(min-width:900px){section{padding:104px 0}}
+.sec-soft{background:var(--soft)}
+.sec-head{max-width:34ch}
+.sec-intro{margin-top:20px;max-width:64ch;color:var(--ink-2);font-size:clamp(17px,1.8vw,19px)}
+
+/* Vierer-/Dreier-Raster */
+.grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);margin-top:44px;border:1px solid var(--line)}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1120px){.grid.g4{grid-template-columns:repeat(4,1fr)}}
+.grid > div{background:var(--bg);padding:30px 28px 32px;display:flex;flex-direction:column;gap:10px}
+.grid h3{font-size:19.5px}
+.grid p{color:var(--ink-2);font-size:16.5px;line-height:1.6}
+
+/* Situationen (Beteiligungsseite) */
+.situ{display:grid;grid-template-columns:1fr;gap:0;margin-top:44px;border-top:1px solid var(--line)}
+.situ article{padding:30px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:860px){.situ article{grid-template-columns:minmax(0,22ch) minmax(0,1fr);gap:44px;padding:34px 0}}
+.situ h3{font-size:21px}
+.situ p{color:var(--ink-2);font-size:17px;max-width:62ch}
+
+/* Portfolio */
+.pf-group{margin-top:52px}
+.pf-group > h3{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  padding-bottom:12px;border-bottom:1px solid var(--line-2)}
+.pf{display:grid;grid-template-columns:1fr;gap:0}
+.pf article{padding:28px 0;border-bottom:1px solid var(--line)}
+@media(min-width:860px){.pf article{display:grid;grid-template-columns:minmax(0,26ch) minmax(0,1fr);gap:44px;padding:32px 0}}
+.pf .co{display:flex;flex-direction:column;gap:6px}
+.pf .co strong{font-size:19px;font-weight:600;letter-spacing:-.012em;line-height:1.25}
+.pf .share{font-size:14px;font-weight:600;color:var(--ci);letter-spacing:.04em}
+.pf p{color:var(--ink-2);font-size:16.5px;max-width:64ch}
+.pf .link{margin-top:10px;display:inline-block;font-size:15.5px}
+
+/* ---------- Zeitstrahl ---------- */
+.axis{position:relative;margin-top:56px}
+.axis .line{position:absolute;left:4px;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,var(--line-2) 0%,var(--line-2) 32%,var(--ci) 32%,var(--ci) 100%)}
+.nodes{display:grid;grid-template-columns:1fr;gap:34px}
+.node{position:relative;padding-left:30px}
+.node .pin{position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.node.on .pin{background:var(--ci)}
+.node.pivot .pin{width:15px;height:15px;left:-3px;top:6px;background:var(--ci);box-shadow:0 0 0 5px rgba(0,114,187,.16)}
+.node .yr{font-size:28px;font-weight:600;letter-spacing:-.025em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.node.on .yr{color:var(--ink)}
+.node.pivot .yr{color:var(--ci)}
+.node p{margin-top:8px;color:var(--ink-2);font-size:16.5px;line-height:1.6;max-width:52ch}
+.node .tag{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ci);font-weight:700;margin-bottom:4px}
+@media(min-width:1100px){
+  .axis{margin-top:84px}
+  .axis .line{left:0;right:0;top:9px;bottom:auto;width:auto;height:1px;
+    background:linear-gradient(90deg,var(--line-2) 0%,var(--line-2) 46%,var(--ci) 46%,var(--ci) 100%)}
+  .axis .line::after{content:"";position:absolute;left:46%;right:0;top:-1px;height:3px;background:var(--ci)}
+  .nodes{grid-template-columns:repeat(5,1fr);gap:26px}
+  .node{padding-left:0;padding-top:36px}
+  .node .pin{left:0;top:5px}
+  .node.pivot .pin{left:-3px;top:2px}
+  .node.pivot .tag{position:absolute;top:-30px;left:0;margin:0}
+  .node p{font-size:15.5px;line-height:1.55}
+  .node .yr{font-size:26px}
+}
+
+/* ---------- Ablauf (nummerierte Schritte) ---------- */
+.steps{counter-reset:s;margin-top:44px;border-top:1px solid var(--line)}
+.steps article{counter-increment:s;padding:28px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:44px 1fr;gap:18px}
+@media(min-width:860px){.steps article{grid-template-columns:60px minmax(0,22ch) minmax(0,1fr);gap:32px;padding:32px 0}}
+.steps article::before{content:counter(s);font-size:22px;font-weight:600;color:var(--ci);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.3}
+.steps h3{font-size:20px}
+.steps p{color:var(--ink-2);font-size:16.5px;max-width:60ch}
+@media(max-width:859px){.steps article > div:last-child{grid-column:2}.steps h3{margin-bottom:6px}}
+
+/* ---------- Häufige Fragen ---------- */
+.faq{margin-top:40px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
+  font-size:19px;font-weight:600;letter-spacing:-.012em;line-height:1.35;min-height:60px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:31px;width:13px;height:13px;
+  border-right:2px solid var(--ci);border-bottom:2px solid var(--ci);
+  transform:rotate(45deg) translateY(-3px);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.faq details p{padding:0 0 24px;color:var(--ink-2);font-size:17px;max-width:64ch}
+
+/* ---------- Kontaktband ---------- */
+.contact{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(163deg,var(--deep) 0%,var(--deep-2) 44%,var(--mid) 100%)}
+.contact .ember{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(36rem 26rem at 100% 114%,rgba(228,142,64,.68) 0%,rgba(194,87,30,.34) 28%,rgba(4,20,31,0) 66%)}
+.contact .in{position:relative;z-index:2}
+.contact h2{max-width:20ch}
+.contact .cols{display:grid;grid-template-columns:1fr;gap:36px;margin-top:40px}
+@media(min-width:860px){.contact .cols{grid-template-columns:1fr 1fr;gap:64px}}
+.contact p{color:rgba(255,255,255,.82);font-size:17.5px;max-width:56ch}
+.contact p + p{margin-top:16px}
+.vcard{font-size:17.5px;line-height:1.75}
+.vcard .nm{font-size:21px;font-weight:600;letter-spacing:-.015em;color:#fff}
+.vcard .role{color:rgba(255,255,255,.72);margin-bottom:12px}
+.vcard a{color:#fff;font-weight:500}
+.vcard a:hover{color:var(--ember-2)}
+.vcard .adr{margin-top:20px;color:rgba(255,255,255,.72);font-size:16.5px;line-height:1.65}
+.checklist{margin-top:22px;padding:0;list-style:none;display:grid;gap:12px}
+.checklist li{position:relative;padding-left:26px;color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.55}
+.checklist li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:2px;background:var(--ember-2)}
+.contact .btnrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.note{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.20);
+  color:rgba(255,255,255,.66);font-size:15.5px}
+
+/* ---------- Fußzeile ---------- */
+.site-footer{background:#0a1119;color:rgba(255,255,255,.68);padding:60px 0 40px;font-size:16px}
+.site-footer .cols{display:grid;grid-template-columns:1fr;gap:34px}
+@media(min-width:760px){.site-footer .cols{grid-template-columns:repeat(3,1fr);gap:44px}}
+.site-footer h3{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);
+  font-weight:600;margin-bottom:14px}
+.site-footer ul{list-style:none;display:grid;gap:8px}
+.site-footer a{color:rgba(255,255,255,.82);text-decoration:none}
+.site-footer a:hover{color:#fff;text-decoration:underline}
+.site-footer .base{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;flex-wrap:wrap;gap:8px 26px;font-size:14.5px;color:rgba(255,255,255,.5)}
+.site-footer .logo-f{margin-bottom:22px}
+.site-footer .logo-f img{width:170px;height:46px;opacity:.9}
+
+/* ---------- Rechtstexte ---------- */
+.legal{padding:56px 0 96px}
+.legal h1{font-size:clamp(32px,4.4vw,48px);letter-spacing:-.03em}
+.legal .stand{margin-top:14px;color:var(--ink-3);font-size:16px}
+.legal h2{font-size:clamp(21px,2.2vw,26px);margin-top:48px;letter-spacing:-.02em}
+.legal h3{font-size:18px;margin-top:30px}
+.legal p,.legal li{font-size:17px;color:var(--ink-2);max-width:68ch}
+.legal p{margin-top:12px}
+.legal ul{margin:14px 0 0 22px;display:grid;gap:8px}
+.legal .dl{margin-top:26px;border-top:1px solid var(--line)}
+.legal .dl > div{display:grid;grid-template-columns:1fr;gap:2px;padding:16px 0;border-bottom:1px solid var(--line)}
+@media(min-width:700px){.legal .dl > div{grid-template-columns:minmax(0,24ch) minmax(0,1fr);gap:32px}}
+.legal .dl dt{font-weight:600;color:var(--ink);font-size:16.5px}
+.legal .dl dd{color:var(--ink-2);font-size:17px;line-height:1.6}
+.legal .back{display:inline-block;margin-top:44px;font-size:16.5px}
+
+/* ============================================================
+   Immobilien-Ankaufsseite — Fotostrecke und Formular
+   ============================================================ */
+
+/* Hero mit Foto */
+.hero.photo{background:var(--deep)}
+.hero.photo .shot{position:absolute;inset:0;z-index:0}
+.hero.photo .shot img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero.photo .scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(4,20,31,.90) 0%,rgba(4,20,31,.78) 34%,rgba(6,44,72,.50) 62%,rgba(6,44,72,.22) 100%)}
+.hero.photo .ember{opacity:.75}
+@media(max-width:760px){
+  .hero.photo .scrim{background:linear-gradient(170deg,rgba(4,20,31,.90) 0%,rgba(4,20,31,.84) 55%,rgba(6,44,72,.66) 100%)}
+}
+
+/* Zwei Objektarten mit Bild */
+.cards{display:grid;grid-template-columns:1fr;gap:28px;margin-top:44px}
+@media(min-width:820px){.cards{grid-template-columns:1fr 1fr;gap:32px}}
+.card{border:1px solid var(--line);background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.card figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--soft)}
+.card figure img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:28px 26px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-size:23px}
+.card p{color:var(--ink-2);font-size:16.5px}
+.card ul{list-style:none;display:grid;gap:10px;margin-top:4px}
+.card li{position:relative;padding-left:24px;font-size:16px;color:var(--ink-2);line-height:1.5}
+.card li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:2px;background:var(--ci)}
+
+/* Argumente-Raster */
+.args{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+@media(min-width:720px){.args{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.args{grid-template-columns:repeat(4,1fr)}}
+.args > div{background:var(--bg);padding:28px 26px 30px}
+.args h3{font-size:19px;margin-bottom:8px}
+.args p{color:var(--ink-2);font-size:16px}
+
+/* Formular */
+.formbox{margin-top:40px;max-width:900px}
+.frow{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:720px){.frow.two{grid-template-columns:1fr 1fr}.frow.three{grid-template-columns:1fr 1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.field label{font-size:16px;font-weight:600;color:var(--ink)}
+.field .req{color:var(--ci)}
+.field input,.field select,.field textarea{
+  font:inherit;font-size:17px;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line-2);border-radius:8px;padding:14px 15px;min-height:54px;width:100%}
+.field textarea{min-height:140px;resize:vertical;line-height:1.55}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ci);outline:2px solid rgba(0,114,187,.22);outline-offset:0}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-3)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.dsgvo{margin-top:8px;padding:22px 22px 24px;background:var(--soft);border:1px solid var(--line)}
+.dsgvo p{font-size:15.5px;color:var(--ink-2);line-height:1.6}
+.dsgvo .check{display:flex;gap:14px;align-items:flex-start;margin-top:18px;cursor:pointer}
+.dsgvo .check input{width:24px;height:24px;flex:0 0 auto;margin-top:2px;accent-color:var(--ci)}
+.dsgvo .check span{font-size:16.5px;color:var(--ink)}
+.formnote{margin-top:20px;font-size:16px;color:var(--ink-2)}
+.formnote.ok{color:#1c7a3e;font-weight:600}
+.formnote.err{color:#a1401a;font-weight:600}
+
+/* ============================================================
+   Startseite — Abschnitt „Unitherm auf einen Blick"
+   ============================================================ */
+
+.fakten{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:1fr;
+  border-top:1px solid var(--line-2);
+}
+@media(min-width:720px){.fakten{grid-template-columns:1fr 1fr;column-gap:56px}}
+@media(min-width:1060px){.fakten{grid-template-columns:repeat(3,1fr);column-gap:48px}}
+.fakten > div{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:5px;
+  padding:20px 0 22px;
+  border-bottom:1px solid var(--line);
+  min-width:0;
+}
+.fakten dt{
+  font-size:12.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink-3);
+  overflow-wrap:anywhere;
+}
+.fakten dd{
+  font-size:19px;
+  line-height:1.35;
+  letter-spacing:-.012em;
+  color:var(--ink);
+}
+
+/* ============================================================
+   Startseite — Motivflächen der beiden Geschäftsfelder
+   Bild einfach unter dem angegebenen Pfad ablegen oder austauschen,
+   keine Änderung an HTML oder CSS nötig. Fehlt die Datei, bleibt
+   die ruhige Farbfläche stehen — es entsteht kein leerer oder
+   fehlerhafter Bildrahmen.
+   ============================================================ */
+
+.card figure.motiv{
+  background-color:var(--deep-2);
+  background-image:var(--motiv,none),
+    linear-gradient(150deg,#062c48 0%,#0a3c63 55%,#0f4a76 100%);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+/* Platzhalter Beteiligungsbild: Datei unter assets/beteiligungen.jpg ablegen */
+.motiv-beteiligungen{--motiv:url("beteiligungen.jpg")}
+.motiv-immobilien{--motiv:url("../img/wohnungen.jpg")}
+
+/* Lange Fachbegriffe in schmalen Karten- und Faktenspalten */
+@media(max-width:600px){
+  .card .eyebrow{font-size:12px;letter-spacing:.09em}
+  .fakten dt{font-size:12px;letter-spacing:.11em}
+}
