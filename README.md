@@ -43,49 +43,41 @@ eingebunden (`.motiv-beteiligungen` in `style.css`). Zum Austauschen genügt
 es, die Datei zu ersetzen — HTML und CSS bleiben unberührt. Fehlt die Datei,
 erscheint an ihrer Stelle eine ruhige CI-blaue Farbfläche, kein leerer Rahmen.
 
-## Schritt 1 — Repository auf GitHub anlegen
+## Aktueller Aufbau (eingerichtet am 4. September 2026)
 
-Ohne Git-Programm, direkt im Browser:
+| | |
+|---|---|
+| GitHub-Konto | `unitherm-beteiligung` |
+| Repository | `unitherm-website` (privat) |
+| Cloudflare-Projekt | Pages-Projekt `unitherm-website` |
+| Produktionsbranch | `main` |
+| Framework | Keine |
+| Build-Befehl | leer |
+| Build-Ausgabeverzeichnis | leer (Cloudflare setzt `/` selbst davor) |
+| Testadresse | `https://unitherm-website.pages.dev` |
 
-1. **github.com** → oben rechts **+** → **New repository**
-2. Repository name: `unitherm-beteiligung`
-3. **Private** wählen (die Seite ist noch nicht öffentlich)
-4. **Add a README file** NICHT ankreuzen — das Repository muss leer starten
-5. **Create repository**
-6. Auf der folgenden Seite: **uploading an existing file**
-7. Den **Inhalt** dieses Ordners hineinziehen — alle Dateien und die Ordner
-   `assets`, `functions`, `img`. Nicht den Ordner `unitherm-beteiligung`
-   selbst, sondern das, was darin liegt.
-8. Unten **Commit changes**
+Jede Änderung im Repository wird automatisch veröffentlicht — Datei auf
+github.com bearbeiten, „Commit changes", nach etwa einer Minute ist sie live.
+Kein weiterer Klick in Cloudflare nötig.
 
-Kontrolle: Im Repository muss `index.html` direkt sichtbar sein, nicht in
-einem Unterordner. Sonst findet Cloudflare die Seite nicht.
+**Wichtig beim Anlegen weiterer Projekte:** Der Cloudflare-Assistent führt
+standardmäßig zu einem **Worker**, nicht zu Pages. Ein Worker ignoriert den
+Ordner `functions/`, das Formular funktioniert dort nicht. Der richtige Weg
+ist der Link „Möchten Sie Pages bereitstellen? Erste Schritte" bzw. direkt
+`dash.cloudflare.com` → *Compute (Workers & Pages)* → **Pages** →
+*Connect to Git*.
 
-## Schritt 2 — Cloudflare Pages verbinden
+Alle Dateien liegen direkt im Wurzelverzeichnis des Repositories —
+`index.html` muss ohne Unterordner sichtbar sein, sonst findet Cloudflare
+die Seite nicht.
 
-1. **dash.cloudflare.com** → links **Compute (Workers & Pages)**
-2. **Create** → Reiter **Pages** → **Connect to Git**
-3. GitHub-Konto verbinden, Repository `unitherm-beteiligung` auswählen
-4. Build-Einstellungen:
-   - Project name: `unitherm-beteiligung`
-   - Production branch: `main`
-   - Framework preset: **None**
-   - Build command: *leer lassen*
-   - Build output directory: `/`
-5. **Save and Deploy**
-
-Nach etwa einer Minute läuft die Seite unter
-`https://unitherm-beteiligung.pages.dev`.
-
-Ab jetzt gilt: jede Änderung im GitHub-Repository wird automatisch
-veröffentlicht. Kein weiterer Klick nötig.
-
-## Schritt 3 — Compatibility date setzen
+## Compatibility date
 
 Damit die Formularfunktion später funktioniert:
 
-Pages-Projekt → **Settings** → **Runtime** → **Compatibility date** auf
-`2024-09-01` oder später setzen.
+Pages-Projekt → **Einstellungen** → **Funktionen** (bzw. *Laufzeit*) →
+**Compatibility date** auf `2024-09-01` oder später setzen, für Produktion
+und Vorschau. Vor der Einrichtung des E-Mail-Bindings nicht nötig.
 
 ## Testbetrieb
 
@@ -154,6 +146,8 @@ Abschnitt 8 der Datenschutzerklärung.
 - [ ] Entscheidung: Hauptadresse mit oder ohne `www`
 - [ ] Entscheidung, ob `unitherm-beteiligungen.at` als Weiterleitung dazukommt
 - [ ] Bildmaterial für Portfolio und Kontakt, falls gewünscht
+- [ ] Eigene Fehlerseite `404.html` — derzeit liefert eine falsche Adresse
+      die Startseite aus
 
 ## Texte ändern
 
