@@ -389,7 +389,7 @@ section{padding:72px 0}
 }
 /* Platzhalter Beteiligungsbild: Datei unter assets/beteiligungen.jpg ablegen */
 .motiv-beteiligungen{--motiv:url("beteiligungen.jpg")}
-.motiv-immobilien{--motiv:url("../img/wohnungen.jpg")}
+.motiv-immobilien{--motiv:url("../img/fluegeltuer.jpg")}
 
 /* Lange Fachbegriffe in schmalen Karten- und Faktenspalten */
 @media(max-width:600px){
